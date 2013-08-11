@@ -15,6 +15,19 @@ extern char gfx_path[256];
 extern BITMAP* background;
 extern Status_Line status_line;
 
+void istream_skip(std::istream& in, const char* str)
+{
+  for(int i = 0; str[i] != '\0' && in.good(); ++i)
+  {
+    if (in.get() != str[i])
+    {
+      in.setstate(std::ios::failbit);
+      std::cerr << "error: failured to skip: " << str << std::endl;
+      return;
+    }
+  }
+}
+
 // no longer in use
 // check if all objects have a defined value, exit if an undefined
 // value occure
@@ -252,10 +265,12 @@ void load_Shape(std::vector<Shape*> &shapes, char* filename)
     return;
   }
   
-  in_file >> "[Palette]\n";
+  istream_skip(in_file, "[Palette]\n");
 
   for(int i = 0; i < 256; ++i) {
-    in_file >> pal[i].r >> pal[i].g >> pal[i].b >> "\n";
+    in_file >> pal[i].r >> pal[i].g >> pal[i].b;
+    istream_skip(in_file, "\n");
+
     std::cout << "RGB: bluber "
 	 << pal[i].r << "# "
 	 << pal[i].g << "# "
