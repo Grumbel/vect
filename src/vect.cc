@@ -40,8 +40,6 @@
 //Quick & Dirty !!!!!!!
 #include "menudefs.cc"
 
-#define DEBUG(x) x
-
 char *menu_items[] =
   {
     "Create Polygon",
@@ -352,7 +350,7 @@ main (int argc, char *argv[])
   }
 
   std::cout << "Trying to init graphics" << std::endl;
-  if (set_gfx_mode (GFX_AUTODETECT, scr_w, scr_h, 0, 0) < 0) {
+  if (set_gfx_mode (GFX_AUTODETECT_WINDOWED, scr_w, scr_h, 0, 0) < 0) {
     std::cerr << allegro_error << std::endl;
     exit (EXIT_FAILURE);
   }
@@ -672,7 +670,7 @@ main (int argc, char *argv[])
 
     c = readkey ();
 
-    DEBUG(std::cerr << "Key: " << c << " pressed.");
+    std::cerr << "Key: " << c << " pressed." << std::endl;
 
     switch (c >> 8) {
     case KEY_D:
