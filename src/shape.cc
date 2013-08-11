@@ -70,7 +70,7 @@ void Object::show_vertex(){}
 void Object::move_vertex(){}
 void Object::copy(Object*)
 {
-  cerr << "In Object Const" << endl;
+  std::cerr << "In Object Const" << std::endl;
 }*/
 
 /* EOF */

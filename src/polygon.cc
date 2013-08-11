@@ -14,7 +14,7 @@
 // Polygon
 Polygon::Polygon(int col = 255)
 {
-  //clog << "Polygon: constructing..." << endl;
+  //clog << "Polygon: constructing..." << std::endl;
   type = POLYGON;
   color = col;
   // p = NULL;
@@ -138,7 +138,7 @@ void Polygon::create_new_dot(int x, int y)
   /*
   if (p == 0)
     {
-      cerr << "Out of memory!!!" << endl;
+      std::cerr << "Out of memory!!!" << std::endl;
       exit(1);
     }
     */
@@ -175,9 +175,9 @@ void Polygon::draw_rect(BITMAP *scr = screen)
 
 void Polygon::create_format()
 {
-  //clog << "Polygon: Trying to free \"p_format\"" << endl;
+  //clog << "Polygon: Trying to free \"p_format\"" << std::endl;
   delete[] p_format;
-  //clog << "Polygon: Successfully freed \"p_format\"" << endl;
+  //clog << "Polygon: Successfully freed \"p_format\"" << std::endl;
   p_format = new int [(p.size()) * 2];
 
   // (int*)malloc(sizeof(*a)* (p.size()*2));
@@ -222,8 +222,8 @@ void Polygon::load(FILE *in)
   fgets(buf, 255, in);
   
   if (sscanf(buf, "Color: %d", &color) != 1) {
-    cerr << "Polygon: Could not load color" << endl;
-    cerr << buf;
+    std::cerr << "Polygon: Could not load color" << std::endl;
+    std::cerr << buf;
     exit(EXIT_FAILURE);
   }
 

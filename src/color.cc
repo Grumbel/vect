@@ -198,7 +198,7 @@ init_palette(void)
   char* home;
   
   if (!(home = getenv("HOME"))) {
-    cout << "$HOME not set!" << endl;
+    std::cout << "$HOME not set!" << std::endl;
     exit(EXIT_FAILURE);
   } 
   
@@ -209,7 +209,7 @@ init_palette(void)
 
   if (in == NULL) {
     allegro_exit();
-    cout << "Could not find default palette \"" << vectrc << "\"" << endl;
+    std::cout << "Could not find default palette \"" << vectrc << "\"" << std::endl;
     exit(EXIT_FAILURE);
   }
 

@@ -13,7 +13,7 @@
 Line::~Line()
 {
   free(p);
-  //cerr << "Line destroyed" << endl;
+  //cerr << "Line destroyed" << std::endl;
 }
 
 Line::Line(int col)

@@ -18,9 +18,9 @@ extern Status_Line status_line;
 // no longer in use
 // check if all objects have a defined value, exit if an undefined
 // value occure
-void check_obj(vector<Shape*>a, int last_obj)
+void check_obj(std::vector<Shape*>a, int last_obj)
 {
-  //cerr << "Check: Checking Shapes" << endl;
+  //cerr << "Check: Checking Shapes" << std::endl;
   
   for(int i=0; i < last_obj; ++i) {
     switch(a[i]->type) {
@@ -29,23 +29,23 @@ void check_obj(vector<Shape*>a, int last_obj)
       case POLYGON:
 	break;
       case SHAPE:
-	cerr << "Check: Shape type \"Shape\", bailout" << endl;
+        std::cerr << "Check: Shape type \"Shape\", bailout" << std::endl;
 	exit(EXIT_FAILURE);
 	break;
 	
       default:
-	cerr << "Check: Unkown Shape type!" << (int)a[i]->type << endl;
+	std::cerr << "Check: Unkown Shape type!" << (int)a[i]->type << std::endl;
 	exit(EXIT_FAILURE);
 	break;
     }
   }
-  //cerr << "Check: Shapes OK." << endl;
+  //std::cerr << "Check: Shapes OK." << std::endl;
 }
 
 
 // Raise or lower the object to the given position
 int
-raise_obj(vector<Shape*>&a, int last_obj, int current_obj, int pos)
+raise_obj(std::vector<Shape*>&a, int last_obj, int current_obj, int pos)
 {
   Shape* temp;
   int next_obj = current_obj + pos;
@@ -122,7 +122,7 @@ get_txt_file(char *filename, char **str)
 }
 
 // Let the user interactivly choose a file to save the shapes in
-void save_file(vector<Shape*>&a, int last_obj)
+void save_file(std::vector<Shape*>&a, int last_obj)
 {
   FILE *out;
   char filename[256];
@@ -149,15 +149,15 @@ void save_file(vector<Shape*>&a, int last_obj)
 	    a[i]->save(out);
 
 	  fclose(out);
-	  clog << "Saveing: " << filename << "successfully saved" << endl;
+          std::cout << "Saveing: " << filename << "successfully saved" << std::endl;
       	}
     }
 
   restore_scr(&temp_scr);   
 }
 
-// Load the file to vector<Shape> without user interactions
-int load_shape(vector<Shape*>&a, int last_obj, char* filename)
+// Load the file to std::vector<Shape> without user interactions
+int load_shape(std::vector<Shape*>&a, int last_obj, char* filename)
 {
   FILE *in;
   char type[256];
@@ -173,15 +173,15 @@ int load_shape(vector<Shape*>&a, int last_obj, char* filename)
   last_obj = 0;
       
   while(in != (FILE*)EOF) {
-    //cerr << "Scan Line" << endl;
+    //std::cerr << "Scan Line" << std::endl;
     
     if (fscanf(in, "[%[^]]]\n", type) != 1) {
-      //cerr << "Can not scan!" << endl;
+      //std::cerr << "Can not scan!" << std::endl;
       break;
     }
-    //cerr << "Line scanned" << endl;
+    //std::cerr << "Line scanned" << std::endl;
       
-    //cerr << "Shape: " << last_obj << " -> ";
+    //std::cerr << "Shape: " << last_obj << " -> ";
 	
     if (strcmp(type, "Circle") == 0) {
       a[last_obj] = new Circle;
@@ -213,7 +213,7 @@ int load_shape(vector<Shape*>&a, int last_obj, char* filename)
       a[last_obj] = new Group;
       a[last_obj++]->load(in);
     } else {
-      clog << "Typ [" << type << "] unknown" << endl;
+      std::cout << "Typ [" << type << "] unknown" << std::endl;
       exit(EXIT_FAILURE);
     }
   }
@@ -223,7 +223,7 @@ int load_shape(vector<Shape*>&a, int last_obj, char* filename)
 }
 
 // Let the user interactively load an rgf file
-int load_file(vector<Shape*>&a, int last_obj)
+int load_file(std::vector<Shape*>&a, int last_obj)
 {
   char filename[256];
 
@@ -243,10 +243,10 @@ int load_file(vector<Shape*>&a, int last_obj)
 }
 
 
-void load_Shape(vector<Shape*> &shapes, char* filename)
+void load_Shape(std::vector<Shape*> &shapes, char* filename)
 {
   PALETTE pal;
-  ifstream in_file(filename);
+  std::ifstream in_file(filename);
 
   if (!in_file) {
     return;
@@ -256,10 +256,10 @@ void load_Shape(vector<Shape*> &shapes, char* filename)
 
   for(int i = 0; i < 256; ++i) {
     in_file >> pal[i].r >> pal[i].g >> pal[i].b >> "\n";
-    cout << "RGB: bluber "
+    std::cout << "RGB: bluber "
 	 << pal[i].r << "# "
 	 << pal[i].g << "# "
-	 << pal[i].b << endl;
+	 << pal[i].b << std::endl;
   }
   
   set_palette(pal);
@@ -377,7 +377,7 @@ draw_textbox(BITMAP *scr, int x_pos, int y_pos, char *org_str)
 // its position as color, used for the select
 // routine
 void
-_redraw_col (BITMAP * scr, vector<Shape*>&a, int last_obj)
+_redraw_col (BITMAP * scr, std::vector<Shape*>&a, int last_obj)
 {
   for (int i = 0; i < last_obj; ++i)
     a[i]->draw_col (scr, i + 1);
@@ -489,7 +489,7 @@ int display_buttons()
 
 // draws all Shapes to screen and checks the mouse
 void
-redraw (vector<Shape*>&a, int last_obj)
+redraw (std::vector<Shape*>&a, int last_obj)
 {
   BITMAP *temp_scr;
   temp_scr = create_bitmap(SCREEN_W, SCREEN_H);
@@ -503,7 +503,7 @@ redraw (vector<Shape*>&a, int last_obj)
     clear(temp_scr);
 
   for (int i = 0; i < last_obj; ++i) {
-    //    cerr << "Redraw: " << int(i) << "Shape drawn" << endl;
+    //    std::cerr << "Redraw: " << int(i) << "Shape drawn" << std::endl;
     a[i]->draw(temp_scr);
   }
 
@@ -526,7 +526,7 @@ redraw (vector<Shape*>&a, int last_obj)
 // draws all Shapes to screen
 
 void
-_redraw (vector<Shape*>&a, int last_obj)
+_redraw (std::vector<Shape*>&a, int last_obj)
 {
   BITMAP *temp_scr;
   temp_scr = create_bitmap(SCREEN_W, SCREEN_H);

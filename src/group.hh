@@ -6,11 +6,11 @@
 #include <cstdio>
 #include <vector>
 
-class Group : public Shape, public vector<Shape*>
+class Group : public Shape, public std::vector<Shape*>
 {
 public:
   Group();
-  Group(const vector<Shape*> &);
+  Group(const std::vector<Shape*> &);
   ~Group();
 
   void draw(BITMAP *);
@@ -29,7 +29,7 @@ public:
   void get_border();
 private:
   int x1_pos, x2_pos, y1_pos, y2_pos;
-  vector<Shape*> a;
+  std::vector<Shape*> a;
 };
 
 #endif // #ifndef GROUP_HH

@@ -1,6 +1,6 @@
 // Copyright (C) 1998 Ingo Ruhnke <grumbel@gmx.de>, see README.TXT for details
 
-#include <iostream.h>
+#include <iostream>
 #include <stdio.h>
 #include <allegro.h>
 
@@ -14,7 +14,7 @@
 
 extern Status_Line status_line;
 
-Circle::Circle(int col = 255)
+Circle::Circle(int col)
 {
   type = CIRCLE;
   color = col;
@@ -145,12 +145,12 @@ Circle::copy(Shape* b)
 {
   Circle *c = static_cast<Circle*>(b);
     
-  //  cerr << "In Copy" << endl;
+  //  std::cerr << "In Copy" << std::endl;
   radius = c->radius;
   x = c->x;
   y = c->y;
   type = c->type;
-  // cerr << "out Copy" << endl;
+  // std::cerr << "out Copy" << std::endl;
 }
 
 void

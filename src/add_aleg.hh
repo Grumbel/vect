@@ -3,6 +3,8 @@
 #ifndef ADD_ALEG_HH
 #define ADD_ALEG_HH
 
+#include <allegro.h>
+
 bool mouse_button1_pressed();
 bool mouse_button2_pressed();
 bool mouse_button3_pressed();

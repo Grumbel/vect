@@ -36,6 +36,6 @@ protected:
   //  vector<string> str;
 };
 
-#endif TEXT_HH
+#endif
 
 /* EOF */

@@ -44,56 +44,56 @@
 
 char *menu_items[] =
   {
-    {"Create Polygon"},
-    {"Create Circle"},
-    {"Create Line"},
-    {"Create Dots"},
-    {"Create Text"},
-    {"Create Rect"},
-    {"???????"},
-    {"???????"},
-    {"--------------"},
-    {"Files...    ->"},
-    {"Help...     ->"},
-    {"--------------"},
-    {"Quit...     ->"},
-    {NULL}
+    "Create Polygon",
+    "Create Circle",
+    "Create Line",
+    "Create Dots",
+    "Create Text",
+    "Create Rect",
+    "???????",
+    "???????",
+    "--------------",
+    "Files...    ->",
+    "Help...     ->",
+    "--------------",
+    "Quit...     ->",
+    NULL
   };
 
 char *menu_help_items[] =
   {
-    {"Keybindings"},
-    {"Help"},
-    {"-----------"},
-    {"About"},
-    {"History"},
-    {NULL}
+    "Keybindings",
+    "Help",
+    "-----------",
+    "About",
+    "History",
+    NULL
   };
 
 
 char *menu_quit_items[] =
   {
-     {"Quit?"}
-    ,{"-----"}
-    ,{"Yes"}
-    ,{"No"}
-    ,{NULL}
+     "Quit?"
+    ,"-----"
+    ,"Yes"
+    ,"No"
+    ,NULL
   };
 
 char *menu_io_data[] =
   {
-     {"Load"}
-    ,{"Save"}
-    ,{"------------"}
-    ,{"Load Bitmap"}
-    ,{"Save Bitmap"}
-    ,{"------------"}
-    ,{"Load binary"}
-    ,{"Save binary"}
-    ,{"------------"}
-    ,{"Load Palette"}
-    ,{"Save palette"}
-    ,{NULL}
+     "Load"
+    ,"Save"
+    ,"------------"
+    ,"Load Bitmap"
+    ,"Save Bitmap"
+    ,"------------"
+    ,"Load binary"
+    ,"Save binary"
+    ,"------------"
+    ,"Load Palette"
+    ,"Save palette"
+    ,NULL
   };
 
 
@@ -143,11 +143,10 @@ int get_current_color(int current_col) {
 }
 
 // Exit vect and print a goodby message
-void exit_vect(int exit_code = EXIT_SUCCESS);
 void exit_vect(int exit_code = EXIT_SUCCESS)
 {
   allegro_exit ();
-  cout <<
+  std::cout <<
     "Vect V" << VECT_VERSION << "\n" 
     "~~~~~~~~~~~~~~~\n"
     "Thank you for using Vect, for more informations\n"
@@ -155,7 +154,7 @@ void exit_vect(int exit_code = EXIT_SUCCESS)
     "        http://home.pages.de/~grumbel/\n"
     "\n"
     "  Ingo Ruhnke <grumbel@gmx.de>\n"
-       << endl;
+       << std::endl;
   exit (EXIT_SUCCESS);
 }
   
@@ -184,8 +183,8 @@ update_status_line(int current_col, int current_obj, int last_obj)
 }
 
 // global variables
-vector<vector<Shape*> > frames(max_frames);
-vector<int> last_objs(max_frames);
+std::vector<std::vector<Shape*> > frames(max_frames);
+std::vector<int> last_objs(max_frames);
 
 //void menu_buttons(void))[10];
 void
@@ -248,9 +247,9 @@ interactive_zoom(void) {
   y2 = my;
 
   if (x1 > x2)
-    swap(x1, x2);
+    std::swap(x1, x2);
   if (y1 > y2)
-    swap(y1, y2);
+    std::swap(y1, y2);
   
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 
@@ -276,10 +275,10 @@ Menu_Buttons menu_buttons[] = {
   void_button
 };
 
-vector<Shape*> shapes;  // The main object which hold all sub objs
+std::vector<Shape*> shapes;  // The main object which hold all sub objs
 //Group shapes;
 
-vector<Shape*> caption; // This obj holds all objects of a caption
+std::vector<Shape*> caption; // This obj holds all objects of a caption
 //Group caption;
 
 // this function is _very_ full
@@ -322,11 +321,11 @@ main (int argc, char *argv[])
       strcpy(gfx_path, optarg);
       break;
     case 'v':
-      cout << "Vect V" << VECT_VERSION << endl;
+      std::cout << "Vect V" << VECT_VERSION << std::endl;
       exit(EXIT_SUCCESS);
       break;
     case '?':
-      cout <<
+      std::cout <<
 	"\n" 
 	"Usage: VECT.EXE [OPTIONS]\n" 
 	"~~~~~~~~~~~~~~~~~~~~~~~~~\n"
@@ -335,7 +334,7 @@ main (int argc, char *argv[])
 	"-h XXX     Use screenmode with height XXX\n" 
 	"-w XXX     Use screenmode with width XXX\n"
 	"-v         Print Version\n"
-	   << endl;
+	   << std::endl;
       exit (EXIT_SUCCESS);
     }
   }
@@ -346,15 +345,15 @@ main (int argc, char *argv[])
   install_timer ();
 
   if ((mouse_buttons = install_mouse() ) == -1) {
-    cerr << "No mouse found!" << endl;
+    std::cerr << "No mouse found!" << std::endl;
     exit (EXIT_FAILURE);
   } else {
-    cout << mouse_buttons << "-button mouse found" << endl;
+    std::cout << mouse_buttons << "-button mouse found" << std::endl;
   }
 
-  cout << "Trying to init graphics" << endl;
+  std::cout << "Trying to init graphics" << std::endl;
   if (set_gfx_mode (GFX_AUTODETECT, scr_w, scr_h, 0, 0) < 0) {
-    cerr << allegro_error << endl;
+    std::cerr << allegro_error << std::endl;
     exit (EXIT_FAILURE);
   }
   
@@ -673,7 +672,7 @@ main (int argc, char *argv[])
 
     c = readkey ();
 
-    DEBUG(cerr << "Key: " << c << " pressed.");
+    DEBUG(std::cerr << "Key: " << c << " pressed.");
 
     switch (c >> 8) {
     case KEY_D:
@@ -835,10 +834,10 @@ main (int argc, char *argv[])
 	caption.clear();
       }
 
-      // clog << current_obj << endl;
+      // clog << current_obj << std::endl;
 	
       if (current_obj != -1 && shapes[current_obj]->type == GROUP) {
-	clog << "Ungroup" << endl;
+        std::cout << "Ungroup" << std::endl;
 	Group* b;
 	b = static_cast<Group*>(shapes[current_obj]);
 

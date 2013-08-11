@@ -5,7 +5,7 @@
 #include "defs.hh"
 #include "status.hh"
 
-void Status_Line::print(char *str)
+void Status_Line::print(const char *str)
 {
   rectfill(screen, 0, SCREEN_H - 10, SCREEN_W - 1, SCREEN_H, TEXT_BG_COLOR);
   textout(screen, font, str, 2, SCREEN_H - 10, TEXT_COLOR);

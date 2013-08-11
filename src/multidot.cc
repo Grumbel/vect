@@ -41,11 +41,11 @@ bool Multi_Dot::is_in(int rect_x1, int rect_y1, int rect_x2, int rect_y2)
 {
   get_border();
 
-  //  cerr << x1 << x2 << y1 << y2 << endl;
+  //  std::cerr << x1 << x2 << y1 << y2 << std::endl;
   if (rect_x1 > rect_x2)
-    swap(rect_x1, rect_x2);
+    std::swap(rect_x1, rect_x2);
   if (rect_y1 > rect_y2)
-    swap(rect_y1, rect_y2);
+    std::swap(rect_y1, rect_y2);
   
   if (x1 > rect_x1 && x2 < rect_x2
       && y1 > rect_y1 && y2 < rect_y2)

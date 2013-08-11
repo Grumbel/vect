@@ -16,9 +16,9 @@ public:
   bool is_in(int, int, int, int);
   virtual void get_border();
 protected:
-  vector<Point> p;
+  std::vector<Point> p;
 };
 
-#endif MULTIDOT_HH
+#endif
 
 /* EOF */

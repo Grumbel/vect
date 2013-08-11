@@ -9,7 +9,7 @@ public:
   int current_obj;
   int    last_obj;
   
-  void print(char *str);
+  void print(const char *str);
   void refresh();
 private:
   char current_str[256];

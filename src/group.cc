@@ -10,7 +10,7 @@ Group::Group()
   type = GROUP;
 }
 
-Group::Group(const vector<Shape*> &b)
+Group::Group(const std::vector<Shape*> &b)
 {
   type = GROUP;
   a = b;

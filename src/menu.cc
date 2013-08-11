@@ -71,11 +71,11 @@ Menu::Menu(char **str)
 // destroyes all allocated memory (i hope )
 Menu::~Menu()
 {
-  // clog << "Menu: Trying to free memory" << endl;
+  // clog << "Menu: Trying to free memory" << std::endl;
   for(int i=0; i<items; ++i)
     delete[] item[i];
   delete[] item;
-  //  clog << "Menu: All memory freed" << endl;
+  //  clog << "Menu: All memory freed" << std::endl;
 }
 
 // checks over which menu item the mouse is and return

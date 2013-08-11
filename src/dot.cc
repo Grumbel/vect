@@ -18,7 +18,7 @@
 #include "status.hh"
 extern Status_Line status_line;
 
-Dot::Dot(int col = 255)
+Dot::Dot(int col)
 {
   is_cached = false;
   cache_scr = 0;
@@ -153,28 +153,28 @@ void Dot::load(FILE* in)
     p.push_back(point);
   }
   is_cached = false;
-  //  cerr << "Dot loading is not suported" << endl;
+  //  std::cerr << "Dot loading is not suported" << std::endl;
   //return ;
 
   //////////////////////////////////////////////
 
   /*
-  //clog << "Polgon: Trying to load a polygon" << endl;
+  //clog << "Polgon: Trying to load a polygon" << std::endl;
   char buf[256];
 
   p = (Point *)malloc(sizeof(Point) * 15);
 
   if (p == NULL)
     {
-      cerr << "Polygon: Out of memory!!!" << endl;
+      std::cerr << "Polygon: Out of memory!!!" << std::endl;
       exit(EXIT_FAILURE);
     }
   
   fgets(buf, 255, in);
   
   if (sscanf(buf, "Color: %d", &color) != 1) {
-    cerr << "Polygon: Could not load color" << endl;
-    cerr << buf;
+    std::cerr << "Polygon: Could not load color" << std::endl;
+    std::cerr << buf;
     exit(EXIT_FAILURE);
   }
 
@@ -190,7 +190,7 @@ void Dot::load(FILE* in)
       
       if (p == NULL)
 	{
-	  cerr << "Polygon: Out of Memory!!!" << endl;
+	  std::cerr << "Polygon: Out of Memory!!!" << std::endl;
 	  exit(EXIT_FAILURE);
 	}
       
@@ -199,7 +199,7 @@ void Dot::load(FILE* in)
   p_format = 0;
   type = POLYGON;
   format_is_up_to_date = false;
-  // clog << "Polygon: successfull loaded" << endl;
+  // clog << "Polygon: successfull loaded" << std::endl;
   */
 }
 
