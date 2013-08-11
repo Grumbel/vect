@@ -193,19 +193,8 @@ change_color(void)
 void
 init_palette(void)
 {
-  FILE*     in;
-  char vectrc[256];
-  char* home;
-  
-  if (!(home = getenv("HOME"))) {
-    std::cout << "$HOME not set!" << std::endl;
-    exit(EXIT_FAILURE);
-  } 
-  
-  strcpy(vectrc, home);
-  strcat(vectrc, "/.vectrc");
-
-  in = fopen(vectrc, "rt");
+  char* vectrc = "default.pal";
+  FILE* in = fopen(vectrc, "rt");
 
   if (in == NULL) {
     allegro_exit();
