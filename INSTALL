@@ -1,0 +1,20 @@
+This file documents the installation of Vect. Copyright (C) 1988,
+1989, 1992, 1994, 1995 Free Software Foundation, Inc.  You may copy,
+distribute, and modify it freely as long as you preserve this
+copyright notice and permission notice.
+
+Installing Vect
+***************
+
+1. First of all compile Vect.
+
+     make
+
+   This shout create a file vect.exe, with is the main programm
+
+
+2. To install vect type:
+
+     make install
+
+   This will install the date files an the vect.exe in /opt/vect/

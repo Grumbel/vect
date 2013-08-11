@@ -1,0 +1,28 @@
+ 
+ +--+ +--+      +-+ 
+ |  | |  |      | |
+ |  +-+  | +--+ | |   +--  
+ |  +-+  | | _| | |   | _\ 
+ |  | |  | ||_. | +-+ |  / 
+ +--+ +--+ +--+ +---+ | /  
+                      || 
+||||||||||||||||||||| ++ |||
+
+
+Vect is a simple vector-graphic editor. It will
+be used to paint the graphics for the adventure
+retriever. 
+You can start painting, simpley by pressing the
+right mouse button and selecting the object to 
+want to create.
+Type "VECT.EXE -?" for more informations on the
+command line options.
+Please have a look in the keybindings file, thats 
+all documentation for now, sorry.
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Have fun
+
+  Ingo Ruhnke <grumbel@gmx.de>

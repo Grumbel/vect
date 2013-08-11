@@ -1,0 +1,6 @@
+NEWS - list of user-visible changes between releases of Vect
+
+1998-??-?? - Release 0.5
+* autoconf and automake is now used for compilation
+
+					

@@ -1,0 +1,52 @@
+[Polygon]
+Color: 255
+   64   185
+  397   103
+  567   147
+  567   354
+  456   444
+   97   427
+    1   339
+    2   227
+   66   134
+    3   129
+  113   120
+
+[Line]
+Color: 255
+   17   108
+  135   101
+   93   164
+  393    74
+  573   125
+
+[Circle]
+Color: 255
+Radius: 20
+   77    84
+
+[Circle]
+Color: 255
+Radius: 17
+  186   119
+
+[Circle]
+Color: 255
+Radius: 18
+  301    82
+
+[Circle]
+Color: 255
+Radius: 18
+  402    58
+
+[Circle]
+Color: 255
+Radius: 13
+  546   104
+
+[Circle]
+Color: 255
+Radius: 17
+  466    80
+

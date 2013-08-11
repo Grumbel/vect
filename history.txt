@@ -1,0 +1,260 @@
+History:
+
+Hier folgt nun die Entwicklungsgeschichte des Spiels. Das die Programmmierung erst f&uuml;nf Monate nach der ersten Spielidee gestartet wurde hatte nur den Grund das mir zu diesem Zeitpunkt noch kein Compiler zur verf&uuml;gung stand.<BR>
+Das bis jetzt die eigentliche Story immer noch nicht fest steht, sollte hier nochmals erw&auml;hnt werden, denn ich bin immer offen f&uuml;r Anregungen und Vorschl&auml;ge.
+
+
+M&auml;rz 97
+  erste grobe Spiel Idee
+
+17.3.97
+  erste Test-Grafiken gezeichnet und gescannt
+
+
+23.3.97
+  Titel-Grafik erstellt	
+	
+
+24.4.97
+  Slide-Show erstellt
+
+
+April 97
+  Storyans&auml;tze entwickelt
+
+
+19.5.97
+  WebPage erstellt
+
+
+20.5.97
+  Test-Mapping Programm entwickelt
+
+
+5.6.97
+  Technik f&uuml;r Backgrounds erabeitet und einen Background gezeichnet
+
+
+9.8.97
+  Mit der Programmierung begonnen und einen weiterem Raum gezeichnet
+  Das Spiel besteht nun aus zwei R&auml;umen
+  endg&uuml;ltige Struktur f&uuml;r Programmierung steht noch nicht fest
+
+
+10.8.97
+  RAUM4 gezeichnet
+  Routine f&uuml;r Text geschrieben und Schriftart ge&auml;ndert
+  Sound integriert
+
+
+11.8.97
+  Map Files entworfen und Sprite Routine geschrieben
+  angefangen C++ Classe f&uuml;r Objekte zu schreiben	
+
+
+12.8.97
+  C++ Classe weiter entwickelt und begonnen sie ins Spiel zu integrieren
+  Guy-Routine verbessert und Objektdaten k&ouml;nnen nun aus Datei eingelesen werden	
+
+
+14.8.97
+  C++ Classe weiter entwickelt und double buffering integriert
+  z_pos f&uuml;r Objecte eingebettet, Objecte werden nun in der richtigen Reihenfolge gezeichnet 	
+
+
+21.8.97
+  Guy-Bug endlich beseitiegt, Mouse funktioniert nicht richtig?! :-(
+  Retriever-WebPage &uuml;ber arbeitet und angefangen Story zu schreiben 	
+
+
+23.8.97
+  R&auml;ume k&ouml;nnen wieder gewechselt werden
+  diverse Bugs prodoziert, viel Arbeit f&uuml;r die n&auml;chsten Tage :-( 	
+
+
+24.8.97
+  einige Bugs bereinigt und Rooms-Class erweitert 	
+
+
+26.8.97
+  erstes Intro gebastelt
+  Sound und Intro kann per Command-Line Option abgeschaltet werden
+  Bug beseitigt
+  Schrift funktioniert nicht 	
+
+
+28.8.97
+  Guy hat verschiedene links/rechts animationen
+  showroom(int) Argument ist dazugekommen 	
+
+
+25.9.97
+  nach Klassenfahrt wieder dabei in den Source zu kommen
+  alternative Titel Grafik erstellt
+  erste ordentliche Version f&uuml;r weitergabe gebastelt
+
+
+12.10.97
+  Mogli-Sprite integriert und zus&auml;tzliche Animationen f&uuml;r oben und unten eingebaut
+
+
+13.10.97
+  Text wieder aktiviert
+  Events programmiert (schau, benutze)
+
+
+14.10.97
+  6 neue Grafiken gezeichnet (Tor, Energieraum, Berg, H&ouml;hleneingang)
+
+
+15.10.97
+  eine neue Grafik gezeichnet (2. Dorf Haus)
+  neue Titelgrafik erstellt
+  einige kleine Bugs beseitigt
+
+
+16.10.97
+  an Web-Page gebastelt
+  weitere Grafik gezeichnet (H&ouml;hlenausgang)
+
+
+28.10.97
+  Inventory angefangen
+  Gegenst&auml;nde k&ouml;nnen jetzt genommen werden
+  drei weitere Grafiken gezeichnet (Tor2, 2. Gateway, Br&uuml;cke)
+
+
+29.10.97
+  WebPage mal wieder aktualisiert
+
+
+10.11.97
+  am Wochenende drei neue Grafiken eingebaut
+  Laden und Speichen von Spielst&auml;nden eingebaut
+  Inventory &uuml;ber arbeitet
+  Source Code Dateien umger&auml;umt
+
+
+12.11.97
+  kleinere Fehler korrigiert (text_mode())
+
+
+13.11.97
+  erste Musik f&uuml;r das Spiel komponiert
+
+
+16.11.97
+  Inventory eingebaut 
+
+
+17.11.97
+  Inventory wird jetzt gespeichert
+
+
+23.11.97
+  getline() erweitert, Kommentare k&ouml;nnen in RDF Dateien eingebaut werden
+
+
+25.11.97
+  hoffentlich Bug in getline() korrigiert
+
+28.11.97
+  Bugs in getline() gefunden und nach 2 1/2 Stunden Arbeit beseitig
+
+Anfang Dezember
+  Double Buffering wieder heraus genommen
+  diverse verbesserungen der Spielgeschwindigkeit erziehlt, nur die Bremse fehlt noch :)
+
+20.12.97
+  erstmals wieder das Spiel angeschaut nach drei Wochen Pause
+
+
+24.12.97
+  
+	die anfangs Dezember Geschwindigkeitsverbesserungen abgeschlossen und wieder eine relativ Bug freie Version bereit<BR>
+	Commando Phraser Integriert, aber nur ein einziges Commado bis jetzt vorhanden :(
+	
+
+25.12.97
+  weiter am optimiert, programm l&auml;uft nun sauber
+  RDF Files k&ouml;nnen nun variabel eingelesen werden
+  Filestructur mu&szlig; noch ge&auml;ndert werden um neue erweiterungen zuzulassen
+
+
+26.12.97
+  bis 3:30 in die Nacht programmiert
+  walkto_x/y hinzugef&uuml;gt
+  RIGHT, LEFT Konstanten ge&auml;ndert
+
+
+29.12.97
+  wieder bis 4:00 Uhr programmiert
+  Commando Phraser weiter entwickelt (room, gamma)
+  Gamma Correctur implementiert
+  kleinere Fehler beseitigt
+  Credits Scroller gebaut
+  Waiting Animationen eingebaut
+  R&auml;ume k&ouml;nnen jetzt einfacher (linke Maustaste) gewechselt werden
+  readme.txt &uuml;berarbeitet
+
+
+5.1.98
+  noch einige neue R&auml;ume eingebaut
+  eine neue Version zusammen gestellt f&uuml;r die Ver&ouml;ffentlichung
+	
+
+17.2.98
+  endlich mal wieder etwas Zeit gefunden
+  Source Code etwas sortiert und aufger&auml;umt
+
+Ende M&auml;rz
+  Retriever erstmal auf Eis gelegt
+  Idee f&uuml;r die umstellung auf Vektor Grafik
+  Gegonnen den Grafik-Editor zu programmieren (Vect)
+
+
+1.4.98
+  Retriever Page umgebaut
+  Vect Source Code ver&ouml;ffentlicht
+
+
+16.4.98
+  neue Version von Vect ver&ouml;ffentlich (Source/Binary)
+  nach drei Wochen nonstop programmieren ist Vect gr&ouml;&szlig;er als Retriever (Vect Source: 67KB Retriever Source: 64KB)
+
+
+7.5.98
+  Dots und Multi_Dots in Vect eingef&uuml;hrt
+
+
+28.5.98
+  in den letzten Wochen an Vect weitergearbeitet, Animationen und einige zus&auml;tzliche Objecte erstellt
+  Retriever noch einmal &uuml;berdacht, werde das Spiel vermutlich komplett umstrukturieren
+
+
+1.6.98
+  Versuch Vect nach Linux zu portieren, vorerst gescheitert (brauch einen neuen GCC)
+
+
+10.6.98
+  Vekt nach Linux portiert, l&auml;uft aber verdammt langsam, ist nicht zu gebrauchen
+
+
+30.7.98
+  Ein paar Gedanken f&uuml;r die weitere Planung verschwendet und zu Papier gepracht
+
+
+8.8.98
+  Retrievr Seite mal wieder aktualisiert
+
+
+10.8.98
+  Die am 30.7.98 geschriebenen Texte mit auf die Seite gepackt
+  aktualisierte Retrievr Seite heraufgeladen
+	
+
+17.8.98
+  Linux Version ist nun lauff&auml;ig (l&auml;uft im 256 auch
+  	ordenlich schnell) 
+	
+

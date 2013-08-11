@@ -1,0 +1,36 @@
+[Circle]
+Color: 668064
+Radius: 45
+  243   183
+
+[Circle]
+Color: 668064
+Radius: 81
+  404   209
+
+[Circle]
+Color: 668064
+Radius: 23
+  394   212
+
+[Circle]
+Color: 668064
+Radius: 71
+  209   304
+
+[Circle]
+Color: 668064
+Radius: 49
+  379   352
+
+[Polygon]
+Color: 668064
+  250   236
+  304   203
+  340   272
+  393   296
+  336   309
+  324   360
+  270   351
+  294   293
+

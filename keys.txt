@@ -1,0 +1,49 @@
+ 
+| / __       __.
+|| |__||   ||__
+| \|__. \_/ .__|
+======== /======
+       _/
+
+Description of all Keys:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+    <SPACE>       - Clear Screen
+
+       Q          - Quit
+
+       B          - Show Background (Bitmap)
+
+       D          - ReDraw
+
+     <TAB>        - Next object
+
+  <SHIFT><TAB>    - Previous object
+
+    <PageUp>      - Raise Object
+ 
+   <PageDown>     - Lower Object
+
+ <SHIFT><PageUp>  - Object to the top
+
+<SHIFT><PageDown> - Object to the buttom
+
+       C          - Change object color
+
+       P          - Create color blending
+
+       V          - Show/Edit Vertexs
+
+     <DEL>        - Delete current object 
+ 
+       S          - Scale current object 
+ 
+       +          - Copy current object
+
+
+
+Have fun
+
+
+ Ingo Ruhnke <grumbel@gmx.de>
+	     

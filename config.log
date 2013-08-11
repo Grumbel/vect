@@ -1,0 +1,45 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:556: checking for a BSD compatible install
+configure:609: checking whether build environment is sane
+configure:666: checking whether make sets ${MAKE}
+configure:712: checking for working aclocal
+configure:725: checking for working autoconf
+configure:738: checking for working automake
+configure:751: checking for working autoheader
+configure:764: checking for working makeinfo
+configure:781: checking for gcc
+configure:894: checking whether the C compiler (gcc -g -O2 -Wall ) works
+configure:910: gcc -o conftest -g -O2 -Wall   conftest.c  1>&5
+configure:907: warning: return-type defaults to `int'
+configure:936: checking whether the C compiler (gcc -g -O2 -Wall ) is a cross-compiler
+configure:941: checking whether we are using GNU C
+configure:950: gcc -E conftest.c
+configure:969: checking whether gcc accepts -g
+configure:1005: checking for c++
+configure:1037: checking whether the C++ compiler (c++ -g -O2 -Wall ) works
+configure:1053: c++ -o conftest -g -O2 -Wall   conftest.C  1>&5
+configure:1079: checking whether the C++ compiler (c++ -g -O2 -Wall ) is a cross-compiler
+configure:1084: checking whether we are using GNU C++
+configure:1093: c++ -E conftest.C
+configure:1112: checking whether c++ accepts -g
+configure:1144: checking whether make sets ${MAKE}
+configure:1172: checking for main in -lalleg
+configure:1187: gcc -o conftest -g -O2 -Wall   conftest.c -lalleg   1>&5
+configure:1216: checking how to run the C preprocessor
+configure:1237: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1296: checking for ANSI C header files
+configure:1309: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1376: gcc -o conftest -g -O2 -Wall   conftest.c -lalleg  1>&5
+configure:1403: checking for unistd.h
+configure:1413: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1441: checking for working const
+configure:1495: gcc -c -g -O2 -Wall  conftest.c 1>&5
+configure: In function `main':
+configure:1469: warning: unused variable `s'
+configure:1489: warning: unused variable `foo'
+configure:1457: warning: unused variable `zero'
+configure:1451: warning: unused variable `x'
+configure:1468: warning: `t' might be used uninitialized in this function
+configure:1486: warning: `b' might be used uninitialized in this function
