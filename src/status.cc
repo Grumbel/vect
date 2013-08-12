@@ -8,7 +8,7 @@
 void Status_Line::print(const char *str)
 {
   rectfill(screen, 0, SCREEN_H - 10, SCREEN_W - 1, SCREEN_H, TEXT_BG_COLOR);
-  textout(screen, font, str, 2, SCREEN_H - 10, TEXT_COLOR);
+  textout_ex(screen, font, str, 2, SCREEN_H - 10, TEXT_COLOR, -1);
   
   sprintf(current_str,
 	  "%-50s - Current_Obj: %3d - Last_Obj: %3d",
@@ -18,7 +18,7 @@ void Status_Line::print(const char *str)
 void Status_Line::refresh()
 {
   rectfill(screen, 0, SCREEN_H - 10, SCREEN_W - 1, SCREEN_H, TEXT_BG_COLOR);
-  textout(screen, font, current_str, 2, SCREEN_H - 10, TEXT_COLOR);  
+  textout_ex(screen, font, current_str, 2, SCREEN_H - 10, TEXT_COLOR, -1);
 }
 
 Status_Line status_line;

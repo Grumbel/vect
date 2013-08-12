@@ -20,8 +20,7 @@ Text::draw(BITMAP *scr)
 {
   //  char s[str[0].size()];
   //  strcpy(s, str[0].c_str());
-  text_mode(-1);
-  //  textout(scr, font, s, x_pos, y_pos, color);
+  //  textout_ex(scr, font, s, x_pos, y_pos, color, -1);
 }
 
 void
@@ -89,9 +88,8 @@ Text::draw_col(BITMAP *scr, int col)
   //  char s[str[0].size()];
   //  strcpy(s, str[0].c_str());
   
-  text_mode(-1);
   //  for(unsigned int i = 0; i < str.size(); ++i) 
-    //    textout(scr, font, s, x_pos, y_pos + 9*i, col);
+  //    textout_ex(scr, font, s, x_pos, y_pos + 9*i, col, -1);
 }
 
 void

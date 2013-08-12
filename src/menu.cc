@@ -90,7 +90,6 @@ int Menu::show()
   // set text mode to transparent
   backup_scr(&temp_scr);
   draw();
-  text_mode(-1);
 
   while(!mouse_button1_pressed())
     {
@@ -104,10 +103,10 @@ int Menu::show()
       if (value == items && temp_value != value) {
 	if (temp_value < items && temp_value >=0) {
 	  show_mouse(NULL);
-	  textout(screen,
-		  font,
-		  item[temp_value],
-		  mx1, my1 + temp_value * 9, MENU_TEXT_COLOR);
+	  textout_ex(screen,
+                     font,
+                     item[temp_value],
+                     mx1, my1 + temp_value * 9, MENU_TEXT_COLOR, -1);
 	  show_mouse(screen);
 	}
 	temp_value = value;
@@ -116,21 +115,21 @@ int Menu::show()
       if (value>=0 && value <items && temp_value != value) {
 	show_mouse(NULL);
 	if (temp_value >= 0 && temp_value < items)
-	  textout(screen,
-		  font,
-		  item[temp_value],
-		  mx1, my1 + temp_value * 9, MENU_TEXT_COLOR);
+	  textout_ex(screen,
+                     font,
+                     item[temp_value],
+                     mx1, my1 + temp_value * 9, MENU_TEXT_COLOR, -1);
 
-	textout(screen,
-		font,
-		item[value],
-		mx1, my1 + value * 9, MENU_HTEXT_COLOR);
+	textout_ex(screen,
+                   font,
+                   item[value],
+                   mx1, my1 + value * 9, MENU_HTEXT_COLOR, -1);
 
 	show_mouse(screen);
 	temp_value = value;
       }
     }
-  text_mode(0);
+
   restore_scr(&temp_scr);
 
   return value;
@@ -146,12 +145,8 @@ void Menu::draw()
 
   rect3d(screen, mx1-2, my1-2, mx1 + width, my1 + (items * 9));
 
-  text_mode(-1);
-
   for(int i=0; i < items; ++i)
-    textout(screen, font, item[i], mx1, my1 + i*9, MENU_TEXT_COLOR);
-
-  text_mode(0);
+    textout_ex(screen, font, item[i], mx1, my1 + i*9, MENU_TEXT_COLOR, -1);
   
   show_mouse(screen);
 }

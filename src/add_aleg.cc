@@ -115,7 +115,6 @@ _alert(const char* s1, const char* s2, const char* s3, const char* b1, const cha
  int return_value;
 
  return_value = alert(s1, s2, s3, b1, b2, c1, c2);
- text_mode(0);
 
  return return_value;
 }
@@ -260,19 +259,19 @@ scroll(char **str, int lines, int speed)
     clear(buffer);
 
     sprintf(s, "%d", SCREEN_W);
-    textout(screen, font, s,100,100, 255);
-    textout(buffer, font, s,100,100, 255);
+    textout_ex(screen, font, s,100,100, 255, -1);
+    textout_ex(buffer, font, s,100,100, 255, -1);
 
     // here can be some color fading routine be placed
     for(y=0; y<lines; ++y)
-       textout_centre(buffer,
-		      font,
-		      str[y],
-		      buffer->w / 2,
-		      (y * 10) + scrolling,
-		      /* 255*/
-		      MID(0,255,col[(y * 10) + scrolling-5])
-		      );
+       textout_centre_ex(buffer,
+                         font,
+                         str[y],
+                         buffer->w / 2,
+                         (y * 10) + scrolling,
+                         /* 255*/
+                         MID(0,255,col[(y * 10) + scrolling-5]),
+                         -1);
 
     //vsync();
     blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
@@ -306,7 +305,7 @@ void show_text(char **str, int max_lines)
  do {
    clear(buffer);
    for(y=first_line; y - first_line < (max_y/9) && y < max_lines; ++y) {
-      textout(buffer, font, str[y], 0, (y - first_line) * 9, TEXT_COLOR);
+     textout_ex(buffer, font, str[y], 0, (y - first_line) * 9, TEXT_COLOR, -1);
    }
    
    rect(buffer,
@@ -395,7 +394,7 @@ void input_line(char *buf, int x, int y, int color)
       buf[i+2] = '\0';
 
       rectfill(screen, 1, 190, 318, 198, 0);
-      textout(screen, font, buf, x, y, color);
+      textout_ex(screen, font, buf, x, y, color, -1);
       continue;
     }
     if (i>35)
@@ -405,7 +404,7 @@ void input_line(char *buf, int x, int y, int color)
     buf[i+1] = '_';
     buf[i+2] = '\0';
 
-    textout(screen, font, buf, x, y, color);
+    textout_ex(screen, font, buf, x, y, color, -1);
  }
  buf[i] = '\0';
  _restore_scr(&tmp_scr);

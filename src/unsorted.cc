@@ -324,9 +324,6 @@ draw_textbox(BITMAP *scr, int x_pos, int y_pos, const char* org_str)
   while(mouse_b);
   backup_scr(&temp_scr);
   
-  
-  text_mode(TEXT_BG_COLOR);
-
   int height=0;
   int i;
   int x;
@@ -378,7 +375,7 @@ draw_textbox(BITMAP *scr, int x_pos, int y_pos, const char* org_str)
        x_pos + 1 + (width * 4), y_pos + 1 + ((height+2) * 4), TEXT_COLOR);
   
   for(int i=0; i <= height; ++i) {
-    textout(scr, font, str[i], x_pos-(width*4), y_pos - (height*4) +(i*8), TEXT_COLOR);
+    textout_ex(scr, font, str[i], x_pos-(width*4), y_pos - (height*4) +(i*8), TEXT_COLOR, 0);
   }
   while(!mouse_b && !keypressed());
   clear_keybuf();
