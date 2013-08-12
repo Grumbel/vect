@@ -146,7 +146,7 @@ void save_file(std::vector<Shape*>&a, int last_obj)
 
   backup_scr(&temp_scr);
 
-  if (file_select("Save", filename, NULL))
+  if (file_select_ex("Save", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT))
     {
       if ((exists(filename)
 	   && _alert("File exist", get_filename(filename),
@@ -246,7 +246,7 @@ int load_file(std::vector<Shape*>&a, int last_obj)
 
   backup_scr(&temp_scr);
   
-  if (file_select("Load", filename, "RGF")) {
+  if (file_select_ex("Load", filename, "RGF", 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
     last_obj = load_shape(a, last_obj, filename);
     //    load_Shape(a, filename);
   }

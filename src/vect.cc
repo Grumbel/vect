@@ -555,7 +555,7 @@ main (int argc, char *argv[])
 		  
 	      strcpy(filename, gfx_path);
 
-	      if (file_select ("Load Bitmap", filename, NULL)) {
+              if (file_select_ex("Load Bitmap", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		background = load_bitmap (filename, pal);
 	      }
 	      break;
@@ -570,7 +570,7 @@ main (int argc, char *argv[])
 	      backup_scr(&tmp_scr);
 	      get_palette (pal);
 		  
-	      if (file_select ("Save Bitmap", filename, NULL)) {
+	      if (file_select_ex("Save Bitmap", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		if (!exists(filename)) {
 		  save_pcx (filename, tmp_scr, pal);
 		}
@@ -595,7 +595,7 @@ main (int argc, char *argv[])
 	      char filename[256];
 	      strcpy(filename, gfx_path);
 		  
-	      if (file_select ("Load Palette", filename, NULL)) {
+	      if (file_select_ex("Load Palette", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		FILE *in;
 
 		in = fopen(filename, "rt");
@@ -612,7 +612,7 @@ main (int argc, char *argv[])
 	    {
 	      char filename[256];
 	      strcpy(filename, gfx_path);
-	      if (file_select ("Save Palette", filename, NULL)) {
+	      if (file_select_ex("Save Palette", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		if (!exists(filename)) {
 		  FILE *out;
 

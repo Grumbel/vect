@@ -1,5 +1,5 @@
-env = Environment(CXXFLAGS=['-Werror', '-Wno-deprecated-declarations'], 
-                  LIBS=['alleg'])
+env = Environment(CXXFLAGS = [ '-Werror' ], 
+                  LIBS     = [ 'alleg' ])
 env.Program('vect', Glob('src/*.cc'))
 
 # EOF #
