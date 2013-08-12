@@ -115,19 +115,13 @@ Zoom::zpolygon(BITMAP* scr, int vertices, int* points, int color)
 void
 Zoom::zputpixel(BITMAP* scr, int x, int y, int color)
 {
-#if HAVE_LIBALLEG
   putpixel(scr, x + zoom_x, y + zoom_y, color);
-#elif HAVE_LIBGGI2D
-  ggiPutPixel(scr, x, y, color);
-#endif
 }
 
 int
 Zoom::zgetpixel(BITMAP* scr, int x, int y)
 {
-#if HAVE_LIBALLEG
   return getpixel(scr, x, y);
-#endif
 }
 
 /* EOF */
