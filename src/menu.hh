@@ -7,7 +7,7 @@ class Menu
 {
 public:
   Menu();
-  Menu(char **str);
+  Menu(const char** str);
   ~Menu();
   
   int show();

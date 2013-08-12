@@ -283,7 +283,7 @@ void load_Shape(std::vector<Shape*> &shapes, char* filename)
 }
 
 // ugly function to display a text file
-void display_text (char *filename)
+void display_text (const char* filename)
 {
   char *str[50];
   int lines = 0;
@@ -316,7 +316,7 @@ void display_text (char *filename)
 
 // simple, nice, buggy textbox draw routine
 void
-draw_textbox(BITMAP *scr, int x_pos, int y_pos, char *org_str)
+draw_textbox(BITMAP *scr, int x_pos, int y_pos, const char* org_str)
 {
   BITMAP *temp_scr;
   char str[50][50];

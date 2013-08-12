@@ -10,7 +10,7 @@ void swap(int &a, int&b)
   b = temp;
 }
 
-Rect::Rect(int col = 255)
+Rect::Rect(int col)
 {
   color = col;
 }

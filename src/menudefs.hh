@@ -4,9 +4,9 @@
 // you must also change the switch statement in vector.cc
 //
 
-extern char *menu_io_data[];
-extern char *menu_quit_items[];
-extern char *menu_help_items[];
-extern char *menu_items[];
+extern const char *menu_io_data[];
+extern const char *menu_quit_items[];
+extern const char *menu_help_items[];
+extern const char *menu_items[];
 
 /* EOF */

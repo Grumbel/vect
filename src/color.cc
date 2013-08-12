@@ -156,11 +156,11 @@ change_color(void)
     //(dialogproc)  (x)  (y)   (w) (h)
     // (fg)(bg)(key)(flags)(d1)(d2)(dp)(dp2)(dp3)
     { d_slider_proc,  32,  32, 256, 16,
-      TEXT_COLOR   ,  TEXT_BG_COLOR,  0,  0, 63,   0, NULL, update_color, 0 },
+      TEXT_COLOR   ,  TEXT_BG_COLOR,  0,  0, 63,   0, NULL, (void*)update_color, 0 },
     { d_slider_proc,  32,  64, 256, 16,
-      TEXT_COLOR   , TEXT_BG_COLOR,0,   0,  63,  0, NULL, update_color, 0 },
+      TEXT_COLOR   , TEXT_BG_COLOR,0,   0,  63,  0, NULL, (void*)update_color, 0 },
     { d_slider_proc,  32,  96, 256, 16, 
-      TEXT_COLOR   , TEXT_BG_COLOR,0,   0,  63,  0, NULL, update_color, 0 },
+      TEXT_COLOR   , TEXT_BG_COLOR,0,   0,  63,  0, NULL, (void*)update_color, 0 },
     { d_text_proc  , 300,  38,   0, 0,
       TEXT_COLOR,    TEXT_BG_COLOR,   0,   0,  0,    0, (void*)"R"  },
     { d_text_proc  , 300,  70,   0,  0,
@@ -193,7 +193,7 @@ change_color(void)
 void
 init_palette(void)
 {
-  char* vectrc = "default.pal";
+  const char* vectrc = "default.pal";
   FILE* in = fopen(vectrc, "rt");
 
   if (in == NULL) {

@@ -40,7 +40,7 @@
 //Quick & Dirty !!!!!!!
 #include "menudefs.cc"
 
-char *menu_items[] =
+const char* menu_items[] =
   {
     "Create Polygon",
     "Create Circle",
@@ -58,7 +58,7 @@ char *menu_items[] =
     NULL
   };
 
-char *menu_help_items[] =
+const char* menu_help_items[] =
   {
     "Keybindings",
     "Help",
@@ -69,7 +69,7 @@ char *menu_help_items[] =
   };
 
 
-char *menu_quit_items[] =
+const char* menu_quit_items[] =
   {
      "Quit?"
     ,"-----"
@@ -78,7 +78,7 @@ char *menu_quit_items[] =
     ,NULL
   };
 
-char *menu_io_data[] =
+const char* menu_io_data[] =
   {
      "Load"
     ,"Save"

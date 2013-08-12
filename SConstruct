@@ -1,4 +1,4 @@
-env = Environment(CXXFLAGS=['-fpermissive', '-Wno-write-strings'], 
+env = Environment(CXXFLAGS=['-Werror', '-Wno-deprecated-declarations'], 
                   LIBS=['alleg'])
 env.Program('vect', Glob('src/*.cc'))
 

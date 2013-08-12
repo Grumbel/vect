@@ -5,7 +5,7 @@
 
 #include "text.hh"
 
-Text::Text(int col = 255)
+Text::Text(int col)
 {
   color = col;
   //  str.push_back("Sample");

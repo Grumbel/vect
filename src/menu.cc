@@ -45,7 +45,7 @@ Menu::Menu()
 }
 
 // copys the menu structure from a string array
-Menu::Menu(char **str)
+Menu::Menu(const char** str)
 {
 
   int i;

@@ -12,7 +12,7 @@
 #include "defs.hh"
 
 // Polygon
-Polygon::Polygon(int col = 255)
+Polygon::Polygon(int col)
 {
   //clog << "Polygon: constructing..." << std::endl;
   type = POLYGON;

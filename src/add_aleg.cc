@@ -110,7 +110,7 @@ draw_pcx_sprite_stretch(BITMAP *scr, char *filename, int x, int y, int w, int h)
 // solves the error with the text back-   
 // ground color change.                   
 int
-_alert(char *s1, char *s2, char *s3, char *b1, char *b2, int c1, int c2)
+_alert(const char* s1, const char* s2, const char* s3, const char* b1, const char* b2, int c1, int c2)
 {
  int return_value;
 
