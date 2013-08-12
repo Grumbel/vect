@@ -446,7 +446,6 @@ int display_buttons()
   int current_button = -1;
   int temp_button = -1;
   bool button_down=false;
-  int pressed_button = 0;
   char str[] = "0\0";
   
   show_mouse(NULL);
@@ -469,15 +468,16 @@ int display_buttons()
 	return x; 
       }
       
-      if (mouse_x > (x * button_lenght) && mouse_x < (x*50) + 49 &&
-	  temp_button != current_button ||
+      if ((mouse_x > (x * button_lenght) && 
+           mouse_x < (x*50) + 49 &&
+           temp_button != current_button) 
+          ||
 	  ((mouse_b & 1) && !button_down))
 	{
 	  show_mouse(NULL);
 
-      str[0] = '0' + x;
-      status_line.print(str);
-
+          str[0] = '0' + x;
+          status_line.print(str);
 	  
 	  for (int x1=0; x1 < 300; x1+=50)
 	    rect3d_n(screen, x1, 1, x1 + 49, 29);
@@ -487,7 +487,6 @@ int display_buttons()
 	  } else {
 	    rect3d_down(screen, x*50, 1,(x*50)+49, 29);
 	    button_down = true;
-	    pressed_button = x;
 	  }
 	  
 	  temp_button = current_button;

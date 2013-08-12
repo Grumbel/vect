@@ -1,4 +1,4 @@
-env = Environment(CXXFLAGS = [ '-Werror' ], 
+env = Environment(CXXFLAGS = [ '-Wall', '-Werror' ], 
                   LIBS     = [ 'alleg' ])
 env.Program('vect', Glob('src/*.cc'))
 
