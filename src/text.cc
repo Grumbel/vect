@@ -36,7 +36,7 @@ Text::create_new()
   while(mouse_b & 1);
   while(!(mouse_b & 1));
   while(mouse_b & 1);
-  
+
   x_pos = mouse_x;
   y_pos = mouse_y;
 
@@ -87,8 +87,8 @@ Text::draw_col(BITMAP *scr, int col)
 {
   //  char s[str[0].size()];
   //  strcpy(s, str[0].c_str());
-  
-  //  for(unsigned int i = 0; i < str.size(); ++i) 
+
+  //  for(unsigned int i = 0; i < str.size(); ++i)
   //    textout_ex(scr, font, s, x_pos, y_pos + 9*i, col, -1);
 }
 

@@ -13,7 +13,7 @@ public:
   Text(int col = 255);
   ~Text();
   Shape_Type type;
-  
+
   void   draw(BITMAP *scr);
   void   move(int x, int y);
   void   create_new();

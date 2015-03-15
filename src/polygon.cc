@@ -36,10 +36,10 @@ void Polygon::set_color(int col)
 void Polygon::draw_vertex()
 {
   show_mouse(NULL);
-  
+
   for(unsigned int i=0; i < p.size(); ++i)
     vertex(screen, p[i].x, p[i].y, 5, VERTEX_COLOR);
-  
+
   show_mouse(screen);
 }
 
@@ -56,7 +56,7 @@ void Polygon::create_new()
   temp_y2 = mouse_y;
 
   create_new_dot(temp_x2, temp_y2);
-  
+
   temp_x1 = p[0].x;
   temp_y1 = p[0].y;
   temp_x3 = p[p.size() - 1].x;
@@ -64,7 +64,7 @@ void Polygon::create_new()
 
   show_mouse(NULL);
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
-  
+
   while(!mouse_button2_pressed())
     {
       if (mx != mouse_x || my != mouse_y || mouse_b & 1)
@@ -72,7 +72,7 @@ void Polygon::create_new()
 	  show_mouse(NULL);
 	  mx = mouse_x;
 	  my = mouse_y;
-    
+
 	  Zoom::zline(screen,
 	       p[0].x, p[0].y,
 	       mx, my,
@@ -82,27 +82,27 @@ void Polygon::create_new()
 	       temp_x1, temp_y1,
 	       temp_x2, temp_y2,
 	       LINE_COLOR);
-		  
+
 	  if (p.size() > 1)
 	    {
 	      Zoom::zline(screen,
 		   p[p.size() - 1].x, p[p.size() - 1].y,
 		   mx, my,
 		   LINE_COLOR);
-	      
+
 	      Zoom::zline(screen,
 		   temp_x3, temp_y3,
-		   temp_x2, temp_y2,	   
+		   temp_x2, temp_y2,
 		   LINE_COLOR);
 	    }
-	  
+
 	  temp_x1 = p[0].x;
 	  temp_y1 = p[0].y;
 	  temp_x2 = mx;
 	  temp_y2 = my;
 	  temp_x3 = p[p.size() - 1].x;
 	  temp_y3 = p[p.size() - 1].y;
-    
+
 	  if (mouse_button1_pressed())
 	    {
 	      if (p.size() > 1)
@@ -152,11 +152,11 @@ void Polygon::create_new_dot(int x, int y)
 void Polygon::draw_rect(BITMAP *scr = screen)
 {
   int x1 = p[0].x, y1 = p[0].y, x2 = p[0].x, y2 = p[0].y;
-  
+
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
 
   for(unsigned int i=0; i < p.size(); ++i) {
-    
+
     if (p[i].x < x1)
       x1 = p[i].x;
     if (p[i].x > x2)
@@ -165,11 +165,11 @@ void Polygon::draw_rect(BITMAP *scr = screen)
       y1 = p[i].y;
     if (p[i].y > y2)
       y2 = p[i].y;
-   
+
   }
-  
+
   Zoom::zrect(scr, x1-1, y1-1, x2+1, y2+1, LINE_COLOR);
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 }
 
@@ -186,16 +186,16 @@ void Polygon::create_format()
     p_format[2*i] = p[i].x;
     p_format[2*i+1] = p[i].y;
   }
-  
+
   format_is_up_to_date = true;
 }
 
 void Polygon::draw_col(BITMAP *scr, int col)
 {
-  if (!format_is_up_to_date) 
+  if (!format_is_up_to_date)
     create_format();
-  
-  Zoom::zpolygon(scr, p.size(), p_format, col); 
+
+  Zoom::zpolygon(scr, p.size(), p_format, col);
 }
 
 inline
@@ -208,7 +208,7 @@ void Polygon::save(FILE *out)
 {
   fprintf(out, "[Polygon]\n");
   fprintf(out, "Color: %d\n", color);
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     fprintf(out, "%d %d\n", p[i].x, p[i].y);
   }
@@ -220,7 +220,7 @@ void Polygon::load(FILE *in)
   char buf[256];
 
   fgets(buf, 255, in);
-  
+
   if (sscanf(buf, "Color: %d", &color) != 1) {
     std::cerr << "Polygon: Could not load color" << std::endl;
     std::cerr << buf;
@@ -249,7 +249,7 @@ void Polygon::scale()
   int mx = mouse_x;
   int scale = 0;
   int temp_scale = 0;
-  
+
   while(!(mouse_b & 1)) {
     scale = mx - mouse_x;
 
@@ -260,7 +260,7 @@ void Polygon::scale()
   }
 
   int x1 = SCREEN_W, y1 = SCREEN_H;
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     if (x1 > p[i].x)
       x1 = p[i].x;
@@ -268,23 +268,23 @@ void Polygon::scale()
       y1 = p[i].y;
   }
 
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     p[i].x = (p[i].x - x1) * (100 - scale) / 100 + x1;
-    p[i].y = (p[i].y - y1) * (100 - scale) / 100 + y1;      
+    p[i].y = (p[i].y - y1) * (100 - scale) / 100 + y1;
   }
- 
+
   create_format();
 
   while(mouse_b & 1);
-  
+
   show_mouse(screen);
 }
 
 void Polygon::stretch_draw(BITMAP *scr, int scale)
 {
   int x1 = SCREEN_W, y1 = SCREEN_H;
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     if (x1 > p[i].x)
       x1 = p[i].x;
@@ -293,10 +293,10 @@ void Polygon::stretch_draw(BITMAP *scr, int scale)
   }
 
   int *p_f = new int [p.size() * 2];
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     p_f[2*i]   = (p[i].x - x1) * scale / 100 + x1;
-    p_f[2*i+1] = (p[i].y - y1) * scale / 100 + y1;      
+    p_f[2*i+1] = (p[i].y - y1) * scale / 100 + y1;
   }
 
   //vsync();
@@ -310,7 +310,7 @@ void Polygon::rotate()
 {
   int mx = mouse_x;
   int temp_mouse_x = mouse_x;
-  
+
   while (!(mouse_b & 1)) {
     if (mouse_x != temp_mouse_x) {
       //vsync();
@@ -319,7 +319,7 @@ void Polygon::rotate()
       temp_mouse_x = mouse_x;
     }
   }
-  
+
   while(mouse_b & 1);
 }
 
@@ -361,14 +361,14 @@ void Polygon::move_vertex()
 {
  int mx, my;
  unsigned int i;
- 
+
  for(i=0; i < p.size(); ++i) {
    if (mouse_x > p[i].x - 2
        && mouse_x < p[i].x + 2
        && mouse_y > p[i].y - 2
        && mouse_y < p[i].y + 2)
      {
-       break; 
+       break;
      }
  }
  get_mouse_mickeys(&mx, &my);
@@ -376,7 +376,7 @@ void Polygon::move_vertex()
 
  while(mouse_b & 1 && i != p.size()) {
    get_mouse_mickeys(&mx, &my);
-   
+
    if (mx != 0 || my != 0) {
      p[i].x += mx;
      p[i].y += my;
@@ -397,7 +397,7 @@ void Polygon::rotate_draw(BITMAP *scr, int rot)
   for(unsigned int i=0; i < p.size(); ++i) {
     if (x1 > p[0].x)
       x1 = p[0].x;
-    
+
     if (x2 < p[0].x)
       x2 = p[0].x ;
 
@@ -417,14 +417,14 @@ void Polygon::rotate_draw(BITMAP *scr, int rot)
   int a,b;
 
   int p_f[p.size() * 2];
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     a = p_f[2*i] - rx;
     b = p_f[2*i+1] - ry;
 
     c = sqrt(pow(a, 2) * pow(a, 2));
-    
-    tan = atan((double)(p_f[2*i] - rx)/(p_f[i*2]+1 - ry)); 
+
+    tan = atan((double)(p_f[2*i] - rx)/(p_f[i*2]+1 - ry));
     tan += rot * (pi / 180);
     a = (int)sin(270.0 * pi / 180 - tan);
     b = (int)(sin(tan) * c);
@@ -476,11 +476,11 @@ Shape* Polygon::copy()
   a->format_is_up_to_date = false;
 
   // a->p = (Point*)malloc(sizeof(Point) * p.size());
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     a->p[i] = p[i];
   }
-  
+
   return a;
 }
 

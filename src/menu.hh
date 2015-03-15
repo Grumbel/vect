@@ -9,7 +9,7 @@ public:
   Menu();
   Menu(const char** str);
   ~Menu();
-  
+
   int show();
 private:
   void draw();

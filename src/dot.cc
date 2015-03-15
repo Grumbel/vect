@@ -28,7 +28,7 @@ Dot::Dot(int col)
 Dot* Dot::copy()
 {
   Dot* a = new Dot();
-  
+
   a->x1 = x1;
   a->x2 = x2;
   a->y1 = y1;
@@ -108,29 +108,29 @@ void Dot::draw(BITMAP *scr)
 
     if (cache_scr)
       destroy_bitmap(cache_scr);
-    
+
     cache_scr = create_bitmap(SCREEN_W, SCREEN_H);
-    
+
     clear(cache_scr);
-    
+
     for (unsigned int i=0; i < p.size(); ++i)
       Zoom::zputpixel(cache_scr, p[i].x, p[i].y, color);
-    
+
     draw_sprite(scr, cache_scr, 0,0);
 
     is_cached = true;
-  } 
+  }
 }
 
 void Dot::draw_rect(BITMAP *scr)
 {
   int x1 = p[0].x, x2 = p[0].x;
   int y1 = p[0].y, y2 = p[0].y;
-  
+
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
-  get_border();  
+  get_border();
   Zoom::zrect(scr, x1-1, y1-1, x2+1, y2+1, LINE_COLOR);
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 }
 
@@ -138,11 +138,11 @@ void Dot::save(FILE* out)
 {
   fprintf(out, "[Dot]\n");
   fprintf(out, "%d\n", color);
-  
+
   for(unsigned int i=0; i < p.size(); ++i) {
     fprintf(out, "%d %d\n", p[i].x, p[i].y);
   }
-  fprintf(out, "\n");  
+  fprintf(out, "\n");
 }
 
 void Dot::load(FILE* in)
@@ -170,9 +170,9 @@ void Dot::load(FILE* in)
       std::cerr << "Polygon: Out of memory!!!" << std::endl;
       exit(EXIT_FAILURE);
     }
-  
+
   fgets(buf, 255, in);
-  
+
   if (sscanf(buf, "Color: %d", &color) != 1) {
     std::cerr << "Polygon: Could not load color" << std::endl;
     std::cerr << buf;
@@ -183,18 +183,18 @@ void Dot::load(FILE* in)
     {
       fgets(buf, 255, in);
       //cout << buf;
-      
+
       if (sscanf(buf, "%d %d", &p[last_point].x, &p[last_point].y) != 2)
 	break;
-      
+
       p = (Point *)realloc(p, sizeof(Point) * (last_point + 5));
-      
+
       if (p == NULL)
 	{
 	  std::cerr << "Polygon: Out of Memory!!!" << std::endl;
 	  exit(EXIT_FAILURE);
 	}
-      
+
     }
 
   p_format = 0;

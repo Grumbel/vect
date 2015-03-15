@@ -3,8 +3,8 @@
 #ifndef LINE_HH
 #define LINE_HH
 
-class Line : public Shape 
-{ 
+class Line : public Shape
+{
 public:
   Line(int col);
   Line();
@@ -24,10 +24,10 @@ public:
   void copy(Shape*);
   void set_color(int);
   void get_border();
-  
+
   Point *p;
   int last_point;
-  
+
 private:
   void create_new_dot(int x, int y);
 };

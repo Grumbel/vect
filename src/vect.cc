@@ -1,13 +1,13 @@
-//       __     _         
-//   |  /  | __| |  
-//   | /  /_| _   > 
-//   |/  / _|<_| |  
-//   |__/___|__|_|  
+//       __     _
+//   |  /  | __| |
+//   | /  /_| _   >
+//   |/  / _|<_| |
+//   |__/___|__|_|
 //
 //   A simple Vector-Graphic editor for Retriever.
 //
 //   Copyright (C) 1998 Ingo Ruhnke <grumbel@gmx.de>
-//     
+//
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
 //   the Free Software Foundation; either version 2 of the License, or
@@ -130,7 +130,7 @@ int get_current_color(int current_col) {
   Screen scr;
   scr.get();
   //  BITMAP *temp_scr;
-  
+
   //backup_scr(&temp_scr);
   get_palette(pal);
   current_col = edit_palette(pal);
@@ -145,7 +145,7 @@ void exit_vect(int exit_code = EXIT_SUCCESS)
 {
   allegro_exit ();
   std::cout <<
-    "Vect V" << VECT_VERSION << "\n" 
+    "Vect V" << VECT_VERSION << "\n"
     "~~~~~~~~~~~~~~~\n"
     "Thank you for using Vect, for more informations\n"
     "\n"
@@ -155,7 +155,7 @@ void exit_vect(int exit_code = EXIT_SUCCESS)
        << std::endl;
   exit (EXIT_SUCCESS);
 }
-  
+
 
 void update_status_line(int, int, int);
 
@@ -170,11 +170,11 @@ update_status_line(int current_col, int current_obj, int last_obj)
     sprintf (str,
 	     "X: %4d Y: %4d Color: %3d Shape: %3d All: %3d",
 	     mouse_x, mouse_y, current_col, current_obj, last_obj);
-    
+
     show_mouse (NULL);
     status_line.print (str);
     show_mouse (screen);
-    
+
     mx = mouse_x;
     my = mouse_y;
   }
@@ -212,7 +212,7 @@ make_4_to_3(int* x1, int* y1, int* x2, int* y2)
 void
 interactive_zoom(void) {
   status_line.print("Interactive Zoom");
-  
+
   mouse_clear_buttons();
   mouse_wait_for_button();
 
@@ -225,7 +225,7 @@ interactive_zoom(void) {
   show_mouse(NULL);
   rect(screen, x1, y1, temp_mx, temp_my, LINE_COLOR);
   show_mouse(screen);
-  
+
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
 
   while(!(mouse_b & 1)) {
@@ -248,7 +248,7 @@ interactive_zoom(void) {
     std::swap(x1, x2);
   if (y1 > y2)
     std::swap(y1, y2);
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 
   make_4_to_3(&x1, &y1, &x2, &y2);
@@ -258,7 +258,7 @@ interactive_zoom(void) {
   Zoom::set_zoom(x2 - x1);
   Zoom::set_zoom_x(-x1);
   Zoom::set_zoom_y(-y1);
-  //  redraw (shapes, last_obj);  
+  //  redraw (shapes, last_obj);
 }
 
 // don't ask me why that works!? %-)
@@ -302,7 +302,7 @@ main (int argc, char *argv[])
      }*/
   shapes.resize(255);
   // shapes = frames[0];
-  
+
   opterr = 0;
   while ((c = getopt (argc, argv, "w:h:f:p:v")) != -1) {
     switch (c) {
@@ -324,12 +324,12 @@ main (int argc, char *argv[])
       break;
     case '?':
       std::cout <<
-	"\n" 
-	"Usage: VECT.EXE [OPTIONS]\n" 
+	"\n"
+	"Usage: VECT.EXE [OPTIONS]\n"
 	"~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-	"-p PATH    Set the default path for load/save\n" 
-	"-f FILE    Open FILE, for editing (buggy)\n" 
-	"-h XXX     Use screenmode with height XXX\n" 
+	"-p PATH    Set the default path for load/save\n"
+	"-f FILE    Open FILE, for editing (buggy)\n"
+	"-h XXX     Use screenmode with height XXX\n"
 	"-w XXX     Use screenmode with width XXX\n"
 	"-v         Print Version\n"
 	   << std::endl;
@@ -354,7 +354,7 @@ main (int argc, char *argv[])
     std::cerr << allegro_error << std::endl;
     exit (EXIT_FAILURE);
   }
-  
+
   // set gray-scale palette, with the first colors fixed for the menues
   if (filename[0] == '\0') {
     init_palette ();
@@ -362,8 +362,8 @@ main (int argc, char *argv[])
     last_obj = load_shape (shapes, last_obj, filename);
     redraw(shapes, last_obj);
   }
-  show_mouse (screen); 
-  
+  show_mouse (screen);
+
   // Main programm loop while not 'q' pressed
   // or Quit->Yes is selected over the menu
   // continue in the edit mode.
@@ -374,7 +374,7 @@ main (int argc, char *argv[])
       // display buttons
       if (mouse_y < 2)
 	menu_buttons[display_buttons()]();
-           
+
       // gets the current Shape, after a button1 press
       if (mouse_button1_pressed ()) {
 	BITMAP *col_scr;
@@ -399,7 +399,7 @@ main (int argc, char *argv[])
 	      get_mouse_mickeys (&x, &y);
 	    }
 	    while ((mouse_b & 1) && x == 0 && y == 0);
-	    
+
 	    shapes[current_obj]->move (x, y);
 	    x_move += x;
 	    y_move += y;
@@ -408,27 +408,27 @@ main (int argc, char *argv[])
 	    sprintf (str, "Verschiebe Objekt %d %d", x_move, y_move);
 	    status_line.print (str);
 	  }
-	  
+
 	  //show_mouse (screen);
 	} else if (current_obj == -1) {
 	  // open group rectangel
 	  int mx = mouse_x, my = mouse_y;
 	  int x = mx, y = my;
 	  int temp_mx = mx, temp_my = my;
-	  
+
 	  drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
 	  rect(screen, x, y, mx, my, LINE_COLOR);
-	  
+
 	  while(mouse_b & 1) {
 	    if (mouse_x != mx || mouse_y != my) {
 	      mx = mouse_x;
 	      my = mouse_y;
-	      
+
 	      show_mouse(NULL);
 	      rect(screen, x, y, temp_mx, temp_my, LINE_COLOR);
 	      rect(screen, x, y, mx, my, LINE_COLOR);
 	      show_mouse(screen);
-	      
+
 	      temp_mx = mx;
 	      temp_my = my;
 	    }
@@ -436,7 +436,7 @@ main (int argc, char *argv[])
 	  drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 
 	  caption.clear();
-	  
+
 	  for(int i = 0; i < last_obj; ++i) {
 	    if (shapes[i]->is_in(x, y, mx, my)) {
 	      caption.push_back(shapes[i]);
@@ -445,7 +445,7 @@ main (int argc, char *argv[])
 	  }
 
 	  rect(screen, x, y, mx, my, LINE_COLOR);
-	  
+
 	  for(unsigned i = 0; i < caption.size(); ++i) {
 	    caption[i]->draw_rect(screen);
 	  }
@@ -454,14 +454,14 @@ main (int argc, char *argv[])
 
   	} else { //_---
 	  show_mouse (NULL);
-	
+
 	  char str[255];
 	  sprintf (str, "Current Shape: %5d", current_obj);
 	  status_line.print (str);
-	  
+
 	  if (current_obj >= last_obj || current_obj < 0)
 	    current_obj = -1;
-	  
+
 	  _redraw (shapes, last_obj);
 	  if (current_obj != -1)
 	    shapes[current_obj]->draw_rect (screen);
@@ -509,7 +509,7 @@ main (int argc, char *argv[])
 	  shapes[last_obj] = new Dot(current_col);
 	  shapes[last_obj++]->create_new();
 	  break;
-	    
+
 	case 4:               // Text
 	  status_line.print("Create new Text");
 
@@ -519,7 +519,7 @@ main (int argc, char *argv[])
 
 	case 5:
 	  status_line.print("Create new Rect");
-	    
+
 	  shapes[last_obj] = new Rect(current_col);
 	  shapes[last_obj++]->create_new();
 	  break;
@@ -529,13 +529,13 @@ main (int argc, char *argv[])
 
 	case 7:
 	  break;
-	    
+
 	case 9:		// Files...
 
 	  switch (menu_io.show ()) {
 	  case 0:		// Load
 	    last_obj = load_file(shapes, last_obj);
-		
+
 	    if (last_obj > 0) {
 	      clear(screen);
 	      redraw(shapes, last_obj);
@@ -552,7 +552,7 @@ main (int argc, char *argv[])
 	    {	// Load Bitmap
 	      char filename[256];
 	      PALETTE pal;
-		  
+
 	      strcpy(filename, gfx_path);
 
               if (file_select_ex("Load Bitmap", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
@@ -569,7 +569,7 @@ main (int argc, char *argv[])
 	      strcpy(filename, gfx_path);
 	      backup_scr(&tmp_scr);
 	      get_palette (pal);
-		  
+
 	      if (file_select_ex("Save Bitmap", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		if (!exists(filename)) {
 		  save_pcx (filename, tmp_scr, pal);
@@ -594,7 +594,7 @@ main (int argc, char *argv[])
 	    {
 	      char filename[256];
 	      strcpy(filename, gfx_path);
-		  
+
 	      if (file_select_ex("Load Palette", filename, NULL, 256, OLD_FILESEL_WIDTH, OLD_FILESEL_HEIGHT)) {
 		FILE *in;
 
@@ -630,12 +630,12 @@ main (int argc, char *argv[])
 	  //  switch (menu_io.show())
 	  break;
 	case 10:		// Help...
-	    
+
 	  switch (menu_help.show ()) {
 	  case 0:           // Keys
 	    display_text ("keys.txt");
 	    break;
-	      
+
 	  case 1:		// Help
 	    display_text("help.txt");
 	    break;
@@ -702,7 +702,7 @@ main (int argc, char *argv[])
 	  if (--current_obj < 0)
 	    current_obj = last_obj - 1;
 	}
-	show_mouse (NULL); 
+	show_mouse (NULL);
 
 	_redraw (shapes, last_obj);
 
@@ -757,7 +757,7 @@ main (int argc, char *argv[])
 	set_palette(pal);
 	break;
       }
-      
+
     case KEY_V:
       {
 	if (current_obj != -1) {
@@ -766,12 +766,12 @@ main (int argc, char *argv[])
 	  while(key[KEY_V]);
 	  int temp_mouse_x = mouse_x;
 	  int temp_mouse_y = mouse_y;
-	    
+
 	  while(!key[KEY_V]) {
 	    if (key[KEY_DEL]) {
 	      shapes[current_obj]->del_vertex();
 	    }
-	      
+
 	    if (mouse_x != temp_mouse_x
 		&& mouse_y != temp_mouse_y)
 	      {
@@ -789,7 +789,7 @@ main (int argc, char *argv[])
 	}
       }
       break;
-	
+
     case KEY_DEL:
       if (current_obj != -1) {
 	delete shapes[current_obj];
@@ -804,15 +804,15 @@ main (int argc, char *argv[])
       break;
 
     case KEY_S:
-      if (current_obj != -1) 
+      if (current_obj != -1)
 	shapes[current_obj]->scale();
       break;
 
     case KEY_R:
-      if (current_obj != -1) 
+      if (current_obj != -1)
 	shapes[current_obj]->rotate();
       break;
-	
+
     case KEY_PLUS_PAD:
       if (current_obj != -1)
 	shapes[last_obj++] = shapes[current_obj]->copy();
@@ -833,7 +833,7 @@ main (int argc, char *argv[])
       }
 
       // clog << current_obj << std::endl;
-	
+
       if (current_obj != -1 && shapes[current_obj]->type == GROUP) {
         std::cout << "Ungroup" << std::endl;
 	Group* b;
@@ -846,7 +846,7 @@ main (int argc, char *argv[])
 	--last_obj;
 	delete b;
       }
-	
+
       break;
 
     case KEY_Y: // zoom in
@@ -860,24 +860,24 @@ main (int argc, char *argv[])
       Zoom::zoom_f /= 1.1;
       Zoom::zoom_x = (int)((-(int)((Zoom::zoom_f - 1.0) * (SCREEN_W/2.0))) / Zoom::zoom_f);
       Zoom::zoom_y = (int)((-(int)((Zoom::zoom_f - 1.0) * (SCREEN_H/2.0))) / Zoom::zoom_f);
-      redraw(shapes, last_obj);	
+      redraw(shapes, last_obj);
       break;
 
     case KEY_LEFT:
       Zoom::zoom_x += 20;
-      redraw(shapes, last_obj);	
+      redraw(shapes, last_obj);
       break;
     case KEY_RIGHT:
       Zoom::zoom_x -= 20;
-      redraw(shapes, last_obj);	
+      redraw(shapes, last_obj);
       break;
     case KEY_UP:
       Zoom::zoom_y += 20;
-      redraw(shapes, last_obj);	
+      redraw(shapes, last_obj);
       break;
     case KEY_DOWN:
       Zoom::zoom_y -= 20;
-      redraw(shapes, last_obj);	
+      redraw(shapes, last_obj);
       break;
 
     case KEY_N:
@@ -887,7 +887,7 @@ main (int argc, char *argv[])
       ++current_frame;
       if (current_frame > max_frames)
 	current_frame = max_frames;
-	
+
       shapes = frames[current_frame];
       last_obj = last_objs[current_frame];
 
@@ -907,7 +907,7 @@ main (int argc, char *argv[])
 
       redraw(shapes, last_obj);
       break;
-	
+
     default:
       break;
     }
@@ -916,5 +916,5 @@ main (int argc, char *argv[])
   exit_vect();
   return 0;
 }
- 
+
 /* EOF */

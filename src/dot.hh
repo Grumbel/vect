@@ -12,7 +12,7 @@ public:
   Dot(int col=255);
   Dot(Dot&);
   ~Dot();
-  
+
   void create_new();
   void move(int x, int y);
   void draw_rect(BITMAP*);

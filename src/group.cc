@@ -64,7 +64,7 @@ Group::save(FILE* out)
 {
   fprintf(out, "[Group]\n");
   fprintf(out, "%zu\n", a.size());
-  
+
   for(unsigned int i=0; i < a.size(); ++i) {
     a[i]->save(out);
   }
@@ -101,7 +101,7 @@ Group::is_in(int x1, int y1, int x2, int y2)
   if (x1 < x1_pos && x2 > x2_pos
       && y1 < y1_pos && y2 > y2_pos)
     return true;
-  
+
   return false;
 }
 

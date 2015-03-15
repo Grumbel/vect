@@ -5,15 +5,15 @@
 
 #include <stdio.h>
 #include <allegro.h>
-#include "shape.hh" 
+#include "shape.hh"
 #include "defs.hh"
- 
+
 class Rect : public Shape
 {
 public:
   Rect(int col=255);
   ~Rect();
-  
+
   void   draw(BITMAP *scr);
   void   move(int x, int y);
   void   create_new();

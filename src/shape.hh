@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <allegro.h>
 #include "defs.hh"
- 
+
 class Shape
 {
 public:
@@ -14,7 +14,7 @@ public:
   Shape(const Shape&);
   virtual ~Shape(){};
   Shape_Type type;
-    
+
   virtual void   draw(BITMAP* scr) = 0;
   virtual void   draw_unfilled(BITMAP* scr);
   virtual void   move(int x, int y) = 0;

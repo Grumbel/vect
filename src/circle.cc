@@ -51,9 +51,9 @@ void
 Circle::draw_rect(BITMAP *scr)
 {
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
-  
+
   Zoom::zrect(scr, x-radius-1, y-radius-1, x+radius+1, y+radius+1, LINE_COLOR);
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 }
 
@@ -80,26 +80,26 @@ Circle::create_new()
   int  temp_radius=0;
 
   while (!mouse_button1_pressed());
-  
+
   x = Zoom::zmouse_x();
   y = Zoom::zmouse_y();
 
   show_mouse(NULL);
-  
+
   drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
   get_mouse_mickeys(&mx1, &my1);
   Zoom::zcircle(screen, x, y, temp_radius, LINE_COLOR);
-  
+
   while(!mouse_button1_pressed())
     {
       get_mouse_mickeys(&mx1, &my1);
-      
+
       if (mx1 != 0)
-	{	   
+	{
 	  mx += mx1;
 
 	  radius = abs(mx);
-	  
+
 	  circle(screen, x, y, radius, LINE_COLOR);
 	  circle(screen, x, y, temp_radius, LINE_COLOR);
 	  temp_radius = radius;
@@ -107,7 +107,7 @@ Circle::create_new()
 	  status_line.print(str);
 	}
     }
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
   show_mouse(screen);
   get_border();
@@ -144,7 +144,7 @@ void
 Circle::copy(Shape* b)
 {
   Circle *c = static_cast<Circle*>(b);
-    
+
   //  std::cerr << "In Copy" << std::endl;
   radius = c->radius;
   x = c->x;

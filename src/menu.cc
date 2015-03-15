@@ -25,7 +25,7 @@ void rect3d(BITMAP *scr, int x1, int y1, int x2, int y2)
 }
 
 // default constructer, only for experimetal purpouse here
-// normaly a menu should be initialisesed by an string array 
+// normaly a menu should be initialisesed by an string array
 Menu::Menu()
 {
   int i;
@@ -54,7 +54,7 @@ Menu::Menu(const char** str)
 
   for(i=0; str[i] != NULL; ++i);
   number_of_items = i;
-  
+
   item = new char* [number_of_items];
 
   for(i=0; str[i] != NULL; ++i) {
@@ -111,7 +111,7 @@ int Menu::show()
 	}
 	temp_value = value;
       }
-      
+
       if (value>=0 && value <items && temp_value != value) {
 	show_mouse(NULL);
 	if (temp_value >= 0 && temp_value < items)
@@ -147,7 +147,7 @@ void Menu::draw()
 
   for(int i=0; i < items; ++i)
     textout_ex(screen, font, item[i], mx1, my1 + i*9, MENU_TEXT_COLOR, -1);
-  
+
   show_mouse(screen);
 }
 

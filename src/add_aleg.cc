@@ -13,7 +13,7 @@
 
 
 // Create a boarder around the text, the text must be white (255)
-// and on a clear screen (0), stupid and slow, but works ok 
+// and on a clear screen (0), stupid and slow, but works ok
 void
 edit_text_screen(BITMAP *screen)
 {
@@ -106,9 +106,9 @@ draw_pcx_sprite_stretch(BITMAP *scr, char *filename, int x, int y, int w, int h)
  destroy_bitmap(pcx_file);
 }
 
-// Replacement for the alert function, it 
-// solves the error with the text back-   
-// ground color change.                   
+// Replacement for the alert function, it
+// solves the error with the text back-
+// ground color change.
 int
 _alert(const char* s1, const char* s2, const char* s3, const char* b1, const char* b2, int c1, int c2)
 {
@@ -120,9 +120,9 @@ _alert(const char* s1, const char* s2, const char* s3, const char* b1, const cha
 }
 
 
-// Only checks if the mouse is in the rectangle discribed 
-// by x1, y1 (top/left) and x2, y2 (bottem/right). Some   
-// changes were made on 1.1.98                            
+// Only checks if the mouse is in the rectangle discribed
+// by x1, y1 (top/left) and x2, y2 (bottem/right). Some
+// changes were made on 1.1.98
 bool
 mouse_between(int x1, int y1, int x2, int y2)
 {
@@ -244,10 +244,10 @@ scroll(char **str, int lines, int speed)
  for(int i=0; i<SCREEN_H; ++i) {
 
    col[i] = (int)(pow(2, -1 * pow((i-(SCREEN_H/2.0))/((SCREEN_H/2.0)-(SCREEN_H/10.0)), 8) ) * 255.0);
-   
+
    fprintf(stderr, "%d # ", (int)col[i]);
  }
- 
+
  show_mouse(NULL);
  _backup_scr(&tmp);
  clear(screen);
@@ -283,7 +283,7 @@ scroll(char **str, int lines, int speed)
  show_mouse(screen);
 }
 
-// Displays a text from str on the screen, 
+// Displays a text from str on the screen,
 // the text can be scrolled with the mouse
 // or the keyboard.
 void show_text(char **str, int max_lines)
@@ -307,12 +307,12 @@ void show_text(char **str, int max_lines)
    for(y=first_line; y - first_line < (max_y/9) && y < max_lines; ++y) {
      textout_ex(buffer, font, str[y], 0, (y - first_line) * 9, TEXT_COLOR, -1);
    }
-   
+
    rect(buffer,
 	max_x - 8, y * max_y/ max_lines,
 	max_x,	   first_line * max_y / max_lines,
 	255);
-   
+
    //vsync();
    blit(buffer, screen, 0,0,0,0, SCREEN_W, SCREEN_H);
 
@@ -338,10 +338,10 @@ void show_text(char **str, int max_lines)
        }
    }
 
-   
+
    get_mouse_mickeys(&mx, &my);
    scroll_y += my;
-   
+
    if (scroll_y / 10 != 0) {
      first_line += scroll_y/10;
      scroll_y = scroll_y % 10;
@@ -354,7 +354,7 @@ void show_text(char **str, int max_lines)
      if (first_line < 0)
        first_line = 0;
    }
-   
+
  } while(c>>8 != KEY_ESC && !mouse_b);
 
  while(mouse_b);
@@ -411,7 +411,7 @@ void input_line(char *buf, int x, int y, int color)
  show_mouse(screen);
 }
 
-// checks if to rects with the given coordinate colide 
+// checks if to rects with the given coordinate colide
 bool rect_col(int ax1, int ax2, int ay1, int ay2,
               int bx1, int bx2, int by1, int by2)
 {

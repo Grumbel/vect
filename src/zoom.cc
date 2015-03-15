@@ -10,7 +10,7 @@ int    Zoom::zoom_y =   0;
 void
 Zoom::set_zoom(int x)
 {
-  zoom_f = static_cast<int>(640.0 / x); 
+  zoom_f = static_cast<int>(640.0 / x);
 }
 
 void
@@ -95,9 +95,9 @@ Zoom::zpolygon(BITMAP* scr, int vertices, int* points, int color)
 {
   if (zoom_f != 1) {
     int *zpoints;
-    
+
     zpoints = new int[2 * vertices];
-    
+
     for(int i=0; i < vertices; ++i) {
       zpoints[2*i]   = zoom(points[2*i]   + zoom_x);
       zpoints[2*i+1] = zoom(points[2*i+1] + zoom_y);

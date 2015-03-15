@@ -4,11 +4,11 @@
 
 class Zoom {
 private:
-public: 
+public:
   static double zoom_f;
   static int zoom_x;
   static int zoom_y;
-public: 
+public:
   static void zrect(BITMAP* scr, int x1, int y1, int x2, int y2, int color);
   static void zrectfill(BITMAP* scr, int x1, int y1, int x2, int y2, int color);
   static void zline(BITMAP* scr, int x1, int y1, int x2, int y2, int color);
@@ -17,7 +17,7 @@ public:
   static void zpolygon(BITMAP* scr, int vertices, int* points, int color);
   static void zputpixel(BITMAP* scr, int x, int y, int color);
   static int  zgetpixel(BITMAP* scr, int x, int y);
-  
+
   static void set_zoom(int);
   static void set_zoom_x(int);
   static void set_zoom_y(int);
@@ -25,7 +25,7 @@ public:
   static int zmouse_x();
   static int zmouse_y();
   static void zget_mouse_mickeys(int*, int*);
-  
+
   static int zoom(double a);
 };
 

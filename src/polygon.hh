@@ -5,13 +5,13 @@
 
 #include "multidot.hh"
 
-class Polygon : public Multi_Dot 
+class Polygon : public Multi_Dot
 {
 public:
   Polygon(int col=255);
   Polygon(const Polygon& a);
   ~Polygon();
-  
+
   void create_new();
   void move(int x, int y);
   void draw_rect(BITMAP*);

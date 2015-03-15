@@ -29,10 +29,10 @@ Shape::draw_unfilled(BITMAP* scr)
 void
 Shape::draw_rect(BITMAP *scr)
 {
-  drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);  
+  drawing_mode(DRAW_MODE_XOR, NULL, 0, 0);
 
   rect(scr, x1, y1, x2, y2, LINE_COLOR);
-  
+
   drawing_mode(DRAW_MODE_SOLID, NULL, 0, 0);
 }
 
@@ -42,7 +42,7 @@ Shape::is_in(int rect_x1, int rect_y1, int rect_x2, int rect_y2)
   if (x1 > rect_x1 && x2 < rect_x2
       && y1 > rect_y1 && y2 < rect_y2)
     return true;
-  
+
   return false;
 }
 
@@ -53,7 +53,7 @@ set_color(int col)
   color = col;
 }
 
-// Object 
+// Object
 /*
 Object::Object() {type = OBJECT;}
 void Object::draw(BITMAP *scr){}
