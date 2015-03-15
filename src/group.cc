@@ -63,7 +63,7 @@ void
 Group::save(FILE* out)
 {
   fprintf(out, "[Group]\n");
-  fprintf(out, "%d\n", a.size());
+  fprintf(out, "%zu\n", a.size());
   
   for(unsigned int i=0; i < a.size(); ++i) {
     a[i]->save(out);

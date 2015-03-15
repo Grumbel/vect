@@ -53,11 +53,12 @@ void Dot::set_color(int col)
 
 void Dot::create_new()
 {
-  int mx, my;
+  int mx = 0;
+  int my = 0;
   int i=0;
   Point p1;
   char str[256];
-  
+
   while(!(mouse_b & 2)) {
     if ((mouse_b & 1) && (mouse_x != mx || mouse_y != my)) {
       show_mouse(NULL);
