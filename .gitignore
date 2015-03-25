@@ -1,5 +1,2 @@
-.sconsign.dblite
 *~
-*.o
-/vect
-
+/build*
