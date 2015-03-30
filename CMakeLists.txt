@@ -17,7 +17,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(vect VERSION 0.6.0)
 
-include(FindPkgConfig)
+find_package(PkgConfig REQUIRED)
 pkg_search_module(ALLEGRO REQUIRED allegro)
 
 file(GLOB VECT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/*.cc)
