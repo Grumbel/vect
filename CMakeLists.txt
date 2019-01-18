@@ -25,5 +25,6 @@ file(GLOB VECT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/*.cc)
 add_executable(vect ${VECT_SOURCES})
 target_link_libraries(vect ${ALLEGRO_LIBRARIES})
 target_include_directories(vect PUBLIC ${ALLEGRO_INCLUDE_DIRS})
+target_compile_definitions(vect PUBLIC ALLEGRO_NO_FIX_ALIASES)
 
 # EOF #
