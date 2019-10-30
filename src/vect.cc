@@ -25,6 +25,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <allegro.h>
 
@@ -363,6 +364,8 @@ main (int argc, char *argv[])
     redraw(shapes, last_obj);
   }
   show_mouse (screen);
+
+  set_close_button_callback([]{ exit(0); });
 
   // Main programm loop while not 'q' pressed
   // or Quit->Yes is selected over the menu
